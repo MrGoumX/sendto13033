@@ -74,9 +74,9 @@ function App() {
   ];
 
   const compileSMSMessage = () => {
+    console.log(reason);
     if (firstName && lastName && address && reason) {
-      let sms = `sms://13033?body=${reason} ${firstName.toUpperCase()} `;
-      sms += `${lastName.toUpperCase()} ${address.toUpperCase()}`;
+      const sms = `sms://13033?body=${reason} ${firstName} ${lastName} ${address}`;
       return (
         <a href={sms} type="button" className="btn btn-primary">Αποστολή SMS στο 13033</a>
       )
@@ -93,7 +93,7 @@ function App() {
   });
 
   return (
-    <div className="App p-1 m-1">
+    <div className="App p-1 m-3">
       <h4>Βγες έξω!</h4>
       <form className="m-1">
         <div className="form-row m-4">
@@ -102,7 +102,7 @@ function App() {
               type="text"
               className="form-control"
               placeholder="Όνομα"
-              value={firstName} onChange={event => setFirstName(event.target.value)}/>
+              value={firstName} onChange={event => setFirstName(event.target.value.toLocaleUpperCase('el-GR'))}/>
           </div>
           <div className="col">
             <input
@@ -110,7 +110,7 @@ function App() {
               className="form-control"
               placeholder="Επίθετο"
               value={lastName}
-              onChange={event => setLastName(event.target.value)}/>
+              onChange={event => setLastName(event.target.value.toLocaleUpperCase('el-GR'))}/>
           </div>
         </div>
         <div className="form-row m-4">
@@ -120,7 +120,7 @@ function App() {
               className="form-control"
               placeholder="Διεύθυνση"
               value={address}
-              onChange={event => setAddress(event.target.value)}/>
+              onChange={event => setAddress(event.target.value.toLocaleUpperCase('el-GR'))}/>
           </div>
         </div>
         <div className="form-row m-4">
