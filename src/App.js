@@ -74,9 +74,14 @@ function App() {
   ];
 
   const compileSMSMessage = () => {
-    console.log(reason);
     if (firstName && lastName && address && reason) {
-      const sms = `sms://13033?body=${reason} ${firstName} ${lastName} ${address}`;
+      const nav = navigator.userAgent.toLowerCase();
+      let sms = '';
+      if (nav.indexOf("iphone") > -1 || nav.indexOf("ipad") > -1) {
+        sms += `sms:13033&body=${reason} ${firstName} ${lastName} ${address}`;
+      } else {
+        sms += `sms://13033?body=${reason} ${firstName} ${lastName} ${address}`;
+      }
       return (
         <a href={sms} type="button" className="btn btn-primary">Αποστολή SMS στο 13033</a>
       )
