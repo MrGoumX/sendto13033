@@ -98,7 +98,7 @@ function App() {
   });
 
   return (
-    <div className="App p-1 m-3">
+    <div className="min-vh-100 d-flex align-items-center flex-column py-4 px-1">
       <h4>Βγες έξω!</h4>
       <form className="m-1">
         <div className="form-row m-4">
@@ -140,7 +140,18 @@ function App() {
           </div>
         </div>
       </form>
-      {compileSMSMessage()}
+      <div className="flex-grow-1">
+        {compileSMSMessage()}
+      </div>
+      <footer className="text-muted px-3 text-center">
+        <small>
+          Η εφαρμογή αποθηκεύει το ονοματεπώνυμο και την διεύθυνσή σας τοπικά στη συσκευή και ουδέποτε φεύγουν από αυτή!
+        </small>
+        <br/>
+        <small>
+          Christos Gkoumas - <a href="https://github.com/MrGoumX/sendto13033" target="_blank">GitHub project</a>
+        </small>
+      </footer>
     </div>
   );
 }
