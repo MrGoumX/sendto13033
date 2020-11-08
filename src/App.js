@@ -149,7 +149,7 @@ function App() {
         </small>
         <br/>
         <small>
-          Christos Gkoumas - <a href="https://github.com/MrGoumX/sendto13033" target="_blank">GitHub project</a>
+          Christos Gkoumas - <a href="https://github.com/MrGoumX/sendto13033" rel="noopener noreferrer" target="_blank">GitHub project</a>
         </small>
       </footer>
     </div>
